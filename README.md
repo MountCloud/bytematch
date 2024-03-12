@@ -55,14 +55,15 @@ Support the combination of fuzzy matching, such as: 0?{10} 0?{1,10} ?1{10} ?1{1,
 
 // 主函数 main
 int main() {
-    //parser pattern
+	//parser pattern
 	mc::bytematch::PatternParser parser;
-    std::string searchPattern = "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ??{1,4} 44 89 C6 48 89 D7 48 89 CB 48 8B 05 ??{1,4}";
-	
+	std::string searchPattern = "41 57 41 56 41 55 41 54 56 57 55 53 48 83 EC ??{1,4} 44 89 C6 48 89 D7 48 89 CB 48 8B 05 ??{1,4}";
 	auto pattern = parser.parsePattern(searchPattern);
 
+	//create matcher
 	mc::bytematch::PatternMatcher* pm = new mc::bytematch::PatternMatcher(pattern);
 
+	//match data
 	mc::bytematch::BYTE codes[] = {
 		0xAE, 0xAA
 		, 0x41, 0x57
@@ -96,8 +97,10 @@ int main() {
 		, 0xFA, 0x22
 	};
 
+	//match
 	pm->matchData(codes,sizeof(codes));
 
+	//result
 	auto result = pm->getResult();
 	if(result.size()>0 && pm->hasResult()){
 		std::cout << "Matched" << std::endl;
@@ -105,7 +108,7 @@ int main() {
 		std::cout << "Not Matched" << std::endl;
 	}
 
-    return 0;
+	return 0;
 }
 
 ```
