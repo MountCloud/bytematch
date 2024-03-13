@@ -26,7 +26,7 @@ If there are any bugs, please feel free to raise them. I will do my best to fix 
 Bytes are separated by spaces, for example: 01 02, not allowed to be connected together (error demonstration): 0102.
 
 2：模糊匹配 fuzzy matching：
-模糊符号是英文符号：?，如果需要高位模糊则：?1 ?2，低位模糊则：1? 1?，如果需要完全模糊匹配这个字节：??
+模糊符号是英文符号：?，如果需要高位模糊则：?1 ?2，低位模糊则：1? 2?，如果需要完全模糊匹配这个字节：??
 The fuzzy symbol is an English symbol:?, If high-level blur is required: ?1 ?2. If the low bit is blurry: 1? 2?. If a complete fuzzy match is required for this byte:??
 
 3：范围匹配 range match：
